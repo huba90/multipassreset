@@ -1,15 +1,13 @@
-<?php 
+<?php
 /*==========================================================================================
 = Felelős a felhasználó nevek ID megszerzéséről és új jelszó meghatározásáról              =
 ============================================================================================*/
-	
-class MULTIPASSRESET{
 
+class MULTIPASSRESET {
 	/*----------  Wordpress Multisite Felhasználó ID'k beszerzés  ----------*/
-
 	public function get_all_user_ids(){
 		global $wpdb;
-		
+
 		$allusers = $wpdb->get_results("SELECT ID FROM $wpdb->users");
 		$user_ids = array();
 		foreach ( $allusers as $u ) {
@@ -17,11 +15,9 @@ class MULTIPASSRESET{
 		}
 		return $user_ids;
 	}
-
 	/*---------- Felelős a jelszavak újrairásáról  ----------*/
-
 	public function reset_all_users_password(){
-		//ID'k megszerzése 
+		//ID'k megszerzése
 		$array_of_user_ids = $this->get_all_user_ids();
 
 		foreach ($array_of_user_ids as $user_id) {
@@ -35,5 +31,4 @@ class MULTIPASSRESET{
 		}
 		print('All done!');
 	}
-
 }
