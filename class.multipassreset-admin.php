@@ -9,8 +9,8 @@ class MPR_OPTIONS{
 			add_action( 'network_admin_menu', array( $this, 'init_sub_menu_network' ) );
 		} else {
 			add_action( 'admin_menu', array( $this, 'init_sub_menu' ) );
-			add_action( 'wp_ajax_mpr_reset_all_pass', array( $this,'mpr_reset_all_pass_cb' ) );
 		}
+		add_action( 'wp_ajax_mpr_reset_all_pass', array( $this,'mpr_reset_all_pass_cb' ) );
 	}
 	/*----------  Js file regisztráció funkciója  ----------*/
 	public function add_admin_scripts() {
